@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <p>It is currently {{ now }}</p>
+
+    <!-- <IMG SRC="{{ MEDIA_URL}}/questionmark.png"></body> -->
+
+  <ul>
+    {% for report in report_list %}
+    <li>
+      {{report.title}}
+      <br>
+      <img src="{{report.graph.url }}">
+    </li>
+    {% endfor %}
+  </ul>
+  </body>
+</html>
