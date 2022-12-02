@@ -1,9 +1,13 @@
-from testapp.models import ReportTest
+from testapp.models import ReportTest, ImageTest
 import mysite.settings
 
 def run():
+    # First Create a report
+    r = ReportTest(title='Question Mark')
+    r.save()
+    
+    # Then repeat this for a variable number of images:
     filename = 'questionmark.png'
-    # File must be at os.path.join(settings.MEDIA_PATH, 'questionmark.png')
-    report = ReportTest(title='Question Mark')
-    report.graph.name = filename
-    report.save()
+    image = ImageTest(report=r)
+    image.graph.name = filename
+    image.save()
